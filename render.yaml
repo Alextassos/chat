@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: real-time-forum
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_PATH
+        value: /tmp/forum.db

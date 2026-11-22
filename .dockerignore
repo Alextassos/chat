@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env*
+!.env.example
+*.db
+*.sqlite
+*.sqlite3
+*.exe
+forum
+README.md

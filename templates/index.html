@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="auth-container">
+        <div id="auth-left">
+            <h1 aria-label="Welcome to Real Time Chat">
+                <span class="word"><span style="--i:0">W</span><span style="--i:1">e</span><span style="--i:2">l</span><span style="--i:3">c</span><span style="--i:4">o</span><span style="--i:5">m</span><span style="--i:6">e</span></span>
+                <span class="word"><span style="--i:7">t</span><span style="--i:8">o</span></span>
+                <span class="word"><span style="--i:9">R</span><span style="--i:10">e</span><span style="--i:11">a</span><span style="--i:12">l</span></span>
+                <span class="word"><span style="--i:13">T</span><span style="--i:14">i</span><span style="--i:15">m</span><span style="--i:16">e</span></span>
+                <span class="word"><span style="--i:17">C</span><span style="--i:18">h</span><span style="--i:19">a</span><span style="--i:20">t</span></span>
+            </h1>
+            <p aria-label="Connect, share posts, and chat in real time">
+                <span style="--i:21">C</span><span style="--i:22">o</span><span style="--i:23">n</span><span style="--i:24">n</span><span style="--i:25">e</span><span style="--i:26">c</span><span style="--i:27">t</span><span style="--i:28">,</span>
+                <span style="--i:29">s</span><span style="--i:30">h</span><span style="--i:31">a</span><span style="--i:32">r</span><span style="--i:33">e</span>
+                <span style="--i:34">p</span><span style="--i:35">o</span><span style="--i:36">s</span><span style="--i:37">t</span><span style="--i:38">s</span><span style="--i:39">,</span>
+                <span style="--i:40">a</span><span style="--i:41">n</span><span style="--i:42">d</span>
+                <span style="--i:43">c</span><span style="--i:44">h</span><span style="--i:45">a</span><span style="--i:46">t</span>
+                <span style="--i:47">i</span><span style="--i:48">n</span>
+                <span style="--i:49">r</span><span style="--i:50">e</span><span style="--i:51">a</span><span style="--i:52">l</span>
+                <span style="--i:53">t</span><span style="--i:54">i</span><span style="--i:55">m</span><span style="--i:56">e</span><span style="--i:57">.</span>
+            </p>
+        </div>
+
+        <div id="auth-right">
+            <div id="log">
+                <form id="login-form">
+                    <label for="login-username">Nickname or Email:</label>
+                    <input type="text" id="login-username" placeholder="Enter your nickname or email" required>
+
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <button type="button" id="show-register">Register here</button></p>
+            </div>
+
+            <div id="reg" style="display: none;">
+                <form id="register-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="register-nickname">Nickname:</label>
+                            <input type="text" id="register-nickname" name="nickname" placeholder="Choose a nickname" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="register-age">Age:</label>
+                            <input type="number" id="register-age" name="age" min="13" max="120" placeholder="Your age" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="register-gender">Gender:</label>
+                            <select id="register-gender" name="gender" required>
+                                <option value="" selected disabled>Select gender</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="non-binary">Non-binary</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="register-first-name">First Name:</label>
+                            <input type="text" id="register-first-name" name="first-name" placeholder="First name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="register-last-name">Last Name:</label>
+                            <input type="text" id="register-last-name" name="last-name" placeholder="Last name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="register-email">Email:</label>
+                            <input type="email" id="register-email" name="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-field form-field-full">
+                            <label for="register-password">Password:</label>
+                            <input type="password" id="register-password" name="password" minlength="8" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit">Register</button>
+                </form>
+                <p>Already have an account? <button type="button" id="show-login">Login here</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="forum-app" style="display: none;">
+        <header id="topbar">
+            <a class="brand" href="#" aria-label="Real Time Chat home">RTC</a>
+            <nav class="topbar-actions" aria-label="Forum navigation">
+                <button type="button" id="logout-button">Log out</button>
+            </nav>
+        </header>
+
+        <main id="forum-layout">
+            <aside id="users-sidebar" aria-label="Private conversations">
+                <div class="sidebar-heading">
+                    <h2>Messages</h2>
+                    <span id="online-count">0 online</span>
+                </div>
+                <div id="users-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </aside>
+
+            <section id="feed" aria-label="Posts feed">
+                <form id="create-post-form">
+                    <input type="text" id="post-title" name="title" placeholder="Post title" required>
+                    <textarea id="post-content" name="content" placeholder="Share something..." rows="3" required></textarea>
+                    <div class="post-options">
+                        <input type="text" id="post-categories" name="categories" placeholder="Categories, separated by commas">
+                        <button type="submit">Publish post</button>
+                    </div>
+                </form>
+
+                <div id="posts-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+
+            <aside id="chat-panel" aria-label="Chat">
+                <div id="chat-header">
+                    <h2 id="chat-user-name">Select a conversation</h2>
+                    <span id="chat-user-status"></span>
+                </div>
+                <div id="chat-messages" aria-live="polite">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <form id="message-form">
+                    <input type="text" id="message-input" placeholder="Write a message..." autocomplete="off" required>
+                    <button type="submit">Send</button>
+                </form>
+            </aside>
+        </main>
+    </div>
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>

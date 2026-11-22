@@ -1,0 +1,13 @@
+# Βάση δεδομένων (περιέχει τοπικά/δοκιμαστικά δεδομένα)
+*.db
+*.sqlite
+*.sqlite3
+
+# Local environment variables and secrets
+.env*
+!.env.example
+
+# Compiled binaries της Go
+*.exe
+forum
+real-time-forum
